@@ -1,10 +1,9 @@
-# Eager Algorithm
-This is a solution to the Dynamic Connectivity problem. It is a Quick Find approach and focuses on simply finding out whether two points are somehow connected to each other by any possible path. <br>
+# Lazy Algorithm
+This is also a solution to the Dynamic Connectivity problem. It is a Quick Union approach and focuses on forming something like a tree structure. The algorithm focuses on whether the roots of every point are interconnected and not the points themselves. <br>
 
-The idea is that any two elements that have the same value in the <b>id</b> array will be connected to each other. In this example:<br><br>
-![Capture](https://user-images.githubusercontent.com/36445600/77840864-653b0580-71a9-11ea-9ace-1383c4e48fc3.JPG)<br><br>
-The points 0, 5 and 6 are interconnected;<br>
-The points 1, 2 and 7 are interconnected;<br>
-The points 3, 4, 8 and 9 are interconnected, as they have the same values at those indexes.
+The idea is that any two elements that have their roots connected to each other, will be connected to each other. In this example:<br><br>
+![Capture](https://user-images.githubusercontent.com/36445600/77889183-19f92380-728b-11ea-8d52-0c44ddd3dd82.JPG)
+<br><br>
+Every point is connected to a parent node (and hence its value in the array is that of the parent node's index). To check if 7 is connnected to 3, we must find the absolute roots of both the nodes and check if the values coincide. In this case, all the nodes are interconnected.
 
-This algorithm is, however, of time complexity n<sup>2</sup>. Therefore,, data structures of a larger size, especially of sizes compared to modern storage devices, this algorithm is unreasonably slow and cannot be scaled.<br>
+This algorithm is faster than the Eager Approach in most cases, but lacks when it comes to finding whether two points are interconnected, especially when it comes to a large number of data points, due to the fact that the trees hence generated could be unreasonable tall.
