@@ -4,6 +4,7 @@ package Algorithms.Java;
 class Weight{
     public static int root(int[] arr,int id){
         while(arr[id]!=id){
+            arr[id] = arr[arr[id]]; //flatten the tree
             id = arr[id];
         }
         return id;
@@ -35,6 +36,7 @@ class Weight{
         union(size, id, 3, 8);
         union(size, id, 6, 5);
         union(size, id, 9, 4);
+        union(size, id, 2, 1);
         union(size, id, 5, 0);
         union(size, id, 7, 2);
         union(size, id, 6, 1);
